@@ -4,8 +4,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { ChevronLeft, MoreHorizontal } from "lucide-react";
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
+import Particles from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import { Engine, type ISourceOptions } from "@tsparticles/engine";
 
 const FrejaID = () => {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
