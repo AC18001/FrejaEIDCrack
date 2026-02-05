@@ -6,7 +6,7 @@ import { QRCodeSVG } from "qrcode.react";
 import { ChevronLeft, MoreHorizontal } from "lucide-react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import { Engine } from "tsparticles-engine";
+import { Engine, MoveDirection } from "tsparticles-engine";
 
 const FrejaID = () => {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
@@ -53,7 +53,7 @@ const FrejaID = () => {
       move: {
         enable: true,
         speed: 1,
-        direction: "none",
+        direction: MoveDirection.none,
         random: true,
         straight: false,
       },
