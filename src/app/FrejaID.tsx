@@ -53,7 +53,7 @@ const FrejaID = () => {
       move: {
         enable: true,
         speed: 1,
-        direction: MoveDirection.none,
+        direction: "none",
         random: true,
         straight: false,
       },
