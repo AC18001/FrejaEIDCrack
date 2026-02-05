@@ -5,7 +5,6 @@ import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { ChevronLeft, MoreHorizontal } from "lucide-react";
 import Particles from "@tsparticles/react";
-import { type ISourceOptions } from "@tsparticles/engine";
 
 const FrejaID = () => {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
@@ -32,7 +31,7 @@ const FrejaID = () => {
   const formatDate = (date: Date | null) =>
     date ? date.toLocaleDateString("sv-SE", { day: "2-digit", month: "short" }) : "-- --";
 
-  const particlesOptions: ISourceOptions = {
+  const particlesOptions = {
     fullScreen: { enable: false },
     particles: {
       number: { value: 100 },
