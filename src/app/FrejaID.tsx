@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { ChevronLeft, MoreHorizontal } from "lucide-react";
 import Particles from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { Engine, type ISourceOptions } from "@tsparticles/engine";
+import { type ISourceOptions } from "@tsparticles/engine";
 
 const FrejaID = () => {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
@@ -32,10 +31,6 @@ const FrejaID = () => {
 
   const formatDate = (date: Date | null) =>
     date ? date.toLocaleDateString("sv-SE", { day: "2-digit", month: "short" }) : "-- --";
-
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
-  }, []);
 
   const particlesOptions: ISourceOptions = {
     fullScreen: { enable: false },
@@ -66,7 +61,6 @@ const FrejaID = () => {
       <div className="w-[99%] max-w-[380px] h-[880px] bg-gradient-to-t from-blue-600 to-blue-900 rounded-[40px] shadow-xl text-white flex flex-col items-center p-6 relative overflow-hidden z-10">
         <Particles
           id="tsparticles"
-          init={particlesInit}
           options={particlesOptions}
           style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}
         />
