@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { ChevronLeft, MoreHorizontal } from "lucide-react";
 import Particles from "react-tsparticles";
@@ -95,8 +96,15 @@ const FrejaID = () => {
         </div>
 
         {/* Profilbild */}
-        <div className="mt-20 w-[45vw] h-[45vw] max-w-56 max-h-56 rounded-full border-4 border-[#80cfff] overflow-hidden flex justify-center items-center">
-          <img src="/profile.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
+        <div className="mt-20 w-[45vw] h-[45vw] max-w-56 max-h-56 rounded-full border-4 border-[#80cfff] overflow-hidden flex justify-center items-center relative">
+          <Image
+            src="/profile.jpg"
+            alt="Profile"
+            fill
+            sizes="(max-width: 640px) 45vw, 224px"
+            className="object-cover rounded-full"
+            priority
+          />
         </div>
 
         <p className="text-base mt-6 w-[90%] text-center">Giltigt t o m: <span className="font-bold">2024-07-21</span></p>

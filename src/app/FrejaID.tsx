@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { ChevronLeft, MoreHorizontal } from "lucide-react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import { ISourceOptions } from "tsparticles-engine";
+import { Engine, ISourceOptions } from "tsparticles-engine";
 
 const FrejaID = () => {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
@@ -32,7 +33,7 @@ const FrejaID = () => {
   const formatDate = (date: Date | null) =>
     date ? date.toLocaleDateString("sv-SE", { day: "2-digit", month: "short" }) : "-- --";
 
-  const particlesInit = useCallback(async (engine: any) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
@@ -95,8 +96,15 @@ const FrejaID = () => {
         </div>
 
         {/* Profilbild */}
-        <div className="mt-24 w-[32vw] h-[32vw] max-w-48 max-h-48 rounded-full border-4 border-[#80cfff] overflow-hidden flex justify-center items-center">
-          <img src="/profile.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
+        <div className="mt-24 w-[32vw] h-[32vw] max-w-48 max-h-48 rounded-full border-4 border-[#80cfff] overflow-hidden flex justify-center items-center relative">
+          <Image
+            src="/profile.jpg"
+            alt="Profile"
+            fill
+            sizes="(max-width: 640px) 32vw, 192px"
+            className="object-cover rounded-full"
+            priority
+          />
         </div>
 
         <p className="text-base mt-6 w-[90%] text-center">Giltigt t o m: <span className="font-bold">2024-07-21</span></p>
