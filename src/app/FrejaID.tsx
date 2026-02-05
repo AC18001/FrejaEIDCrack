@@ -43,12 +43,6 @@ const FrejaID = () => {
       number: { value: 100 },
       size: {
         value: { min: 1, max: 4 },
-        animation: {
-          enable: true,
-          speed: 3,
-          minimumValue: 1,
-          sync: false,
-        },
       },
       move: {
         enable: true,
@@ -59,12 +53,6 @@ const FrejaID = () => {
       },
       opacity: {
         value: { min: 0.3, max: 0.8 },
-        animation: {
-          enable: true,
-          speed: 0.5,
-          minimumValue: 0.3,
-          sync: false,
-        },
       },
       color: { value: "#ffffff" },
     },
